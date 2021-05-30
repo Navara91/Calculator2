@@ -11,4 +11,11 @@
     <string name="key_9">9</string>
     <string name="key_0">0</string>
     <string name="key_point">.</string>
+    <string name="key_plus">+</string>
+    <string name="key_minus">-</string>
+    <string name="key_multi">*</string>
+    <string name="key_division">/</string>
+    <string name="key_equal">=</string>
+    <string name="key_clear">C</string>
+
 </resources>
