@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             Button button9 = findViewById(R.id.key_9);
             Button button0 = findViewById(R.id.key_0);
             Button buttonP = findViewById(R.id.key_point);
+            TextView display = findViewById(R.id.display);
 
             button1.setOnClickListener(clickListener);
 
