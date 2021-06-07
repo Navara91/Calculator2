@@ -7,74 +7,89 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
-    private Button button5;
-    private Button button6;
-    private Button button7;
-    private Button button8;
-    private Button button9;
-    private Button button0;
-    private Button buttonP;
-    private TextView display;
-    private float a = 0;
-    private float b = 0;
-
+    private TextView enterText;
+    private TextView resultText;
+    private String stringEnterText = "";
+    private String stringResultText = "0";
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_constraint);
 
-            //digit buttons
-            button1 = findViewById(R.id.key_1);
-            button2 = findViewById(R.id.key_2);
-            button3 = findViewById(R.id.key_3);
-            button4 = findViewById(R.id.key_4);
-            button5 = findViewById(R.id.key_5);
-            button6 = findViewById(R.id.key_6);
-            button7 = findViewById(R.id.key_7);
-            button8 = findViewById(R.id.key_8);
-            button9 = findViewById(R.id.key_9);
-            button0 = findViewById(R.id.key_0);
-            buttonP = findViewById(R.id.key_point);
+        initViews();
+    }
 
-            display = findViewById(R.id.display);
+    private void initViews(){
+            initTextViews();
+            initButtons();
+    }
 
-            button1.setOnClickListener(clickListener);
+    private void initTextViews(){
+            enterText = findViewById(R.id.display);
+            //resultText = findViewById(R.id.display);
+    }
+
+    public void initButtons(){
+        Button button1 = findViewById(R.id.key_1);
+        Button button2 = findViewById(R.id.key_2);
+        Button button3 = findViewById(R.id.key_3);
+        Button button4 = findViewById(R.id.key_4);
+        Button button5 = findViewById(R.id.key_5);
+        Button button6 = findViewById(R.id.key_6);
+        Button button7 = findViewById(R.id.key_7);
+        Button button8 = findViewById(R.id.key_8);
+        Button button9 = findViewById(R.id.key_9);
+        Button button0 = findViewById(R.id.key_0);
+        Button buttonP = findViewById(R.id.key_point);
+        Button buttonPlus = findViewById(R.id.key_plus);
+        Button buttonMinus = findViewById(R.id.key_minus);
+        Button buttonMulti = findViewById(R.id.key_multi);
+        Button buttonDivision = findViewById(R.id.key_division);
+        Button buttonEqual = findViewById(R.id.key_equal);
+        Button buttonClear = findViewById(R.id.key_clear);
+        Button[] buttons = {button0, button1, button2, button3, button4, button5, button6,
+                button7, button8, button9, buttonP, buttonPlus, buttonMinus, buttonMulti,
+                buttonDivision, buttonEqual, buttonClear};
+        for (Button button : buttons){
+            clickButton(button);
+        }
 
     }
+
+    private void clickButton(Button button) {
+            button.setOnClickListener(this);
+    }
+
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.key_1){
                 a = 1;
-                display.setText("1");
+                enterText.setText("1");
             }
 
             if(v.getId() == R.id.key_2){
                 a = 2;
-                display.setText("2");
+                enterText.setText("2");
             }
 
             if(v.getId() == R.id.key_3){
                 a = 3;
-                display.setText("3");
+                enterText.setText("3");
             }
 
             if(v.getId() == R.id.key_4){
                 a = 4;
-                display.setText("4");
+                enterText.setText("4");
             }
 
             if(v.getId() == R.id.key_5){
                 a = 5;
-                display.setText("5");
+                enterText.setText("5");
             }
 
             if(v.getId() == R.id.key_6){
@@ -138,6 +153,8 @@ public class MainActivity extends AppCompatActivity {
         static void plus ()
 
 
+    @Override
+    public void onClick(View v) {
 
-
+    }
 }
