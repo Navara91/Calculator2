@@ -9,11 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView enterText;
-    private TextView resultText;
-    private String stringEnterText = "";
-    private String stringResultText = "0";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initTextViews() {
-        enterText = findViewById(R.id.display);
+        //enterText = findViewById(R.id.display);
         //resultText = findViewById(R.id.display);
     }
 
@@ -53,14 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button[] buttons = {button0, button1, button2, button3, button4, button5, button6,
                 button7, button8, button9, buttonP, buttonPlus, buttonMinus, buttonMulti,
                 buttonDivision, buttonEqual, buttonClear};
-        for (Button button : buttons) {
-            clickButton(button);
-        }
 
-    }
 
-    private void clickButton(Button button) {
-        button.setOnClickListener(this);
     }
 
 
@@ -135,19 +124,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
-
-    private void addEnterText(char c) {
-        stringEnterText = String.format("%s%c", stringEnterText, c);
-        enterText.setText(stringEnterText);
-    }
-
-    private void clearTextView(){
-        stringEnterText = "";
-        stringResultText = "0";
-        enterText.setText(stringEnterText);
-        resultText.setText(stringResultText);
-    }
-
 
 
 
