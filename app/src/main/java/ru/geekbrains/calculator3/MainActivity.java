@@ -64,23 +64,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (v.getId() == R.id.key_6) {
-            addEnterText('6');
+
         }
 
         if (v.getId() == R.id.key_7) {
-            addEnterText('7');
+
         }
 
         if (v.getId() == R.id.key_8) {
-            addEnterText('8');
+
         }
 
         if (v.getId() == R.id.key_9) {
-            addEnterText('9');
+
         }
 
         if (v.getId() == R.id.key_0) {
-            addEnterText('0');
+
         }
 
         if (v.getId() == R.id.key_point) {
