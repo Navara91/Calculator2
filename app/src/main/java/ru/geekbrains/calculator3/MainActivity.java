@@ -14,20 +14,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_constraint);
 
-        initViews();
+
     }
 
-    private void initViews() {
-        initTextViews();
-        initButtons();
-    }
-
-    private void initTextViews() {
-        //enterText = findViewById(R.id.display);
-        //resultText = findViewById(R.id.display);
-    }
-
-    public void initButtons() {
         Button button1 = findViewById(R.id.key_1);
         Button button2 = findViewById(R.id.key_2);
         Button button3 = findViewById(R.id.key_3);
@@ -49,30 +38,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 button7, button8, button9, buttonP, buttonPlus, buttonMinus, buttonMulti,
                 buttonDivision, buttonEqual, buttonClear};
 
-
-    }
+        TextView display = findViewById(R.id.display);
 
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.key_1) {
-            addEnterText('1');
+            display.setText('1');
         }
 
         if (v.getId() == R.id.key_2) {
-            addEnterText('2');
+            display.setText('2');
         }
 
         if (v.getId() == R.id.key_3) {
-            addEnterText('3');
+            display.setText('3');
         }
 
         if (v.getId() == R.id.key_4) {
-            addEnterText('4');
+            display.setText('4');
         }
 
         if (v.getId() == R.id.key_5) {
-            addEnterText('5');
+            display.setText('5');
         }
 
         if (v.getId() == R.id.key_6) {
