@@ -1,20 +1,20 @@
 package ru.geekbrains.calculator3;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView enterText;
     private TextView resultText;
     private String stringEnterText = "";
     private String stringResultText = "0";
 
-        @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_constraint);
@@ -22,17 +22,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initViews();
     }
 
-    private void initViews(){
-            initTextViews();
-            initButtons();
+    private void initViews() {
+        initTextViews();
+        initButtons();
     }
 
-    private void initTextViews(){
-            enterText = findViewById(R.id.display);
-            //resultText = findViewById(R.id.display);
+    private void initTextViews() {
+        enterText = findViewById(R.id.display);
+        //resultText = findViewById(R.id.display);
     }
 
-    public void initButtons(){
+    public void initButtons() {
         Button button1 = findViewById(R.id.key_1);
         Button button2 = findViewById(R.id.key_2);
         Button button3 = findViewById(R.id.key_3);
@@ -53,108 +53,104 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button[] buttons = {button0, button1, button2, button3, button4, button5, button6,
                 button7, button8, button9, buttonP, buttonPlus, buttonMinus, buttonMulti,
                 buttonDivision, buttonEqual, buttonClear};
-        for (Button button : buttons){
+        for (Button button : buttons) {
             clickButton(button);
         }
 
     }
 
     private void clickButton(Button button) {
-            button.setOnClickListener(this);
+        button.setOnClickListener(this);
     }
-
-
-    private View.OnClickListener clickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if(v.getId() == R.id.key_1){
-                a = 1;
-                enterText.setText("1");
-            }
-
-            if(v.getId() == R.id.key_2){
-                a = 2;
-                enterText.setText("2");
-            }
-
-            if(v.getId() == R.id.key_3){
-                a = 3;
-                enterText.setText("3");
-            }
-
-            if(v.getId() == R.id.key_4){
-                a = 4;
-                enterText.setText("4");
-            }
-
-            if(v.getId() == R.id.key_5){
-                a = 5;
-                enterText.setText("5");
-            }
-
-            if(v.getId() == R.id.key_6){
-                a = 6;
-                display.setText("6");
-            }
-
-            if(v.getId() == R.id.key_7){
-                a = 7;
-                display.setText("7");
-            }
-
-            if(v.getId() == R.id.key_8){
-                a = 8;
-                display.setText("8");
-            }
-
-            if(v.getId() == R.id.key_9){
-                a = 9;
-                display.setText("9");
-            }
-
-            if(v.getId() == R.id.key_0){
-                a = 0;
-                display.setText("0");
-            }
-
-            if(v.getId() == R.id.key_point){
-
-            }
-
-            if(v.getId() == R.id.key_plus){
-                b = a;
-
-            }
-
-            if(v.getId() == R.id.key_minus){
-
-            }
-
-            if(v.getId() == R.id.key_multi){
-
-            }
-
-            if(v.getId() == R.id.key_division){
-
-            }
-
-            if(v.getId() == R.id.key_clear){
-
-            }
-
-            if(v.getId() == R.id.key_equal){
-
-            }
-
-
-        }
-    };
-
-        static void plus ()
 
 
     @Override
     public void onClick(View v) {
+        if (v.getId() == R.id.key_1) {
+            addEnterText('1');
+        }
+
+        if (v.getId() == R.id.key_2) {
+            addEnterText('2');
+        }
+
+        if (v.getId() == R.id.key_3) {
+            addEnterText('3');
+        }
+
+        if (v.getId() == R.id.key_4) {
+            addEnterText('4');
+        }
+
+        if (v.getId() == R.id.key_5) {
+            addEnterText('5');
+        }
+
+        if (v.getId() == R.id.key_6) {
+            addEnterText('6');
+        }
+
+        if (v.getId() == R.id.key_7) {
+            addEnterText('7');
+        }
+
+        if (v.getId() == R.id.key_8) {
+            addEnterText('8');
+        }
+
+        if (v.getId() == R.id.key_9) {
+            addEnterText('9');
+        }
+
+        if (v.getId() == R.id.key_0) {
+            addEnterText('0');
+        }
+
+        if (v.getId() == R.id.key_point) {
+
+        }
+
+        if (v.getId() == R.id.key_plus) {
+
+        }
+
+        if (v.getId() == R.id.key_minus) {
+
+        }
+
+        if (v.getId() == R.id.key_multi) {
+
+        }
+
+        if (v.getId() == R.id.key_division) {
+
+        }
+
+        if (v.getId() == R.id.key_clear) {
+
+        }
+
+        if (v.getId() == R.id.key_equal) {
+
+        }
 
     }
+
+    private void addEnterText(char c) {
+        stringEnterText = String.format("%s%c", stringEnterText, c);
+        enterText.setText(stringEnterText);
+    }
+
+    private void clearTextView(){
+        stringEnterText = "";
+        stringResultText = "0";
+        enterText.setText(stringEnterText);
+        resultText.setText(stringResultText);
+    }
+
+
+
+
+
+
 }
