@@ -16,7 +16,7 @@ public class CalculatorPresenter {
 
     private Operator operator = null;
 
-    public CalculatorPresenter(CalendarView view, Calculator calculator){
+    public CalculatorPresenter(CalculatorView view, Calculator calculator){
 
         this.view = view;
         this.calculator = calculator;
@@ -79,7 +79,7 @@ public class CalculatorPresenter {
         isFirstArgument = false;
 
         if (operator != null){
-            int result = calculator.performBinaryOperator(argumentOne, argumentTwo, operator);
+            int result = calculator.performBinaryOperatorPlus(argumentOne, argumentTwo, operator);
 
             view.showResult(String.valueOf(result));
 
@@ -95,7 +95,7 @@ public class CalculatorPresenter {
         isFirstArgument = false;
 
         if (operator != null){
-            int result = calculator.performBinaryOperator(argumentOne, argumentTwo, operator);
+            int result = calculator.performBinaryOperatorMinus(argumentOne, argumentTwo, operator);
 
             view.showResult(String.valueOf(result));
 
@@ -103,7 +103,55 @@ public class CalculatorPresenter {
             argumentTwo = 0;
         }
 
-        operator = Operator.ADD;
+
+    }
+
+    public void keyMultiPressed(){
+
+        isFirstArgument = false;
+
+        if (operator != null){
+            int result = calculator.performBinaryOperatorMulti(argumentOne, argumentTwo, operator);
+
+            view.showResult(String.valueOf(result));
+
+            argumentOne = result;
+            argumentTwo = 0;
+        }
+
+
+    }
+
+    public void keyDivisionPressed(){
+
+        isFirstArgument = false;
+
+        if (operator != null){
+            int result = calculator.performBinaryOperatorDivision(argumentOne, argumentTwo, operator);
+
+            view.showResult(String.valueOf(result));
+
+            argumentOne = result;
+            argumentTwo = 0;
+        }
+
+
+    }
+
+    public void keyEqualPressed(){
+
+        isFirstArgument = false;
+
+        if (operator != null){
+            int result = calculator.performBinaryOperatorEqual()
+
+            view.showResult(String.valueOf(result));
+
+            argumentOne = result;
+            argumentTwo = 0;
+        }
+
+
     }
 
 

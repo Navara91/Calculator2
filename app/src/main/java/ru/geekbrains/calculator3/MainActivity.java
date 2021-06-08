@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_constraint);
 
-        resultText = findViewById(R.id.display);
+        resultText = findViewById(R.id.result);
 
         presenter = new CalculatorPresenter(this, new CalculatorImpl());
 
@@ -31,24 +31,100 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         findViewById(R.id.key_2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.keyOnePressed();
+                presenter.keyTwoPressed();
             }
         });
 
         findViewById(R.id.key_3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.keyOnePressed();
+                presenter.keyThreePressed();
             }
         });
 
         findViewById(R.id.key_4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.keyOnePressed();
+                presenter.keyFourPressed();
             }
         });
 
+        findViewById(R.id.key_5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keyFivePressed();
+            }
+        });
+
+        findViewById(R.id.key_6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keySixPressed();
+            }
+        });
+
+        findViewById(R.id.key_7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keySevenPressed();
+            }
+        });
+
+        findViewById(R.id.key_8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keyEightPressed();
+            }
+        });
+
+        findViewById(R.id.key_9).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keyNinePressed();
+            }
+        });
+
+        findViewById(R.id.key_0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keyZeroPressed();
+            }
+        });
+
+        findViewById(R.id.key_plus).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keyPlusPressed();
+            }
+        });
+
+        findViewById(R.id.key_minus).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keyMinusPressed();
+            }
+        });
+
+        findViewById(R.id.key_multi).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keyMultiPressed();
+            }
+        });
+
+        findViewById(R.id.key_division).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keyDivisionPressed();
+            }
+        });
+
+        findViewById(R.id.key_equal).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keyEqualPressed();
+            }
+        });
 
     }
 
@@ -56,13 +132,4 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     public void showResult(String result) {
         resultText.setText(result);
     }
-}
-
-
-
-
-
-
-
-
 }
