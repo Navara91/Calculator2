@@ -1,22 +1,18 @@
 package ru.geekbrains.calculator3;
 
-import android.view.View;
-import android.widget.CalendarView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 public class CalculatorPresenter {
 
     private final CalculatorView view;
     private final Calculator calculator;
 
+    private int result;
     private int argumentOne = 0;
     private int argumentTwo = 0;
     private boolean isFirstArgument = true;
 
     private Operator operator = null;
 
-    public CalculatorPresenter(CalculatorView view, Calculator calculator){
+    public CalculatorPresenter(CalculatorView view, Calculator calculator) {
 
         this.view = view;
         this.calculator = calculator;
@@ -24,62 +20,62 @@ public class CalculatorPresenter {
         publishArgument();
     }
 
-    public void keyOnePressed(){
+    public void keyOnePressed() {
         computeArg(1);
         publishArgument();
     }
 
-    public void keyTwoPressed(){
+    public void keyTwoPressed() {
         computeArg(2);
         publishArgument();
     }
 
-    public void keyThreePressed(){
+    public void keyThreePressed() {
         computeArg(3);
         publishArgument();
     }
 
-    public void keyFourPressed(){
+    public void keyFourPressed() {
         computeArg(4);
         publishArgument();
     }
 
-    public void keyFivePressed(){
+    public void keyFivePressed() {
         computeArg(5);
         publishArgument();
     }
 
-    public void keySixPressed(){
+    public void keySixPressed() {
         computeArg(6);
         publishArgument();
     }
 
-    public void keySevenPressed(){
+    public void keySevenPressed() {
         computeArg(7);
         publishArgument();
     }
 
-    public void keyEightPressed(){
+    public void keyEightPressed() {
         computeArg(8);
         publishArgument();
     }
 
-    public void keyNinePressed(){
+    public void keyNinePressed() {
         computeArg(9);
         publishArgument();
     }
 
-    public void keyZeroPressed(){
+    public void keyZeroPressed() {
         computeArg(0);
         publishArgument();
     }
 
-    public void keyPlusPressed(){
+    public void keyPlusPressed() {
 
         isFirstArgument = false;
 
-        if (operator != null){
-            int result = calculator.performBinaryOperatorPlus(argumentOne, argumentTwo, operator);
+        if (operator != null) {
+            result = calculator.performBinaryOperatorPlus(argumentOne, argumentTwo, operator);
 
             view.showResult(String.valueOf(result));
 
@@ -90,12 +86,12 @@ public class CalculatorPresenter {
         operator = Operator.ADD;
     }
 
-    public void keyMinusPressed(){
+    public void keyMinusPressed() {
 
         isFirstArgument = false;
 
-        if (operator != null){
-            int result = calculator.performBinaryOperatorMinus(argumentOne, argumentTwo, operator);
+        if (operator != null) {
+            result = calculator.performBinaryOperatorMinus(argumentOne, argumentTwo, operator);
 
             view.showResult(String.valueOf(result));
 
@@ -103,15 +99,15 @@ public class CalculatorPresenter {
             argumentTwo = 0;
         }
 
-
+        operator = Operator.MINUS;
     }
 
-    public void keyMultiPressed(){
+    public void keyMultiPressed() {
 
         isFirstArgument = false;
 
-        if (operator != null){
-            int result = calculator.performBinaryOperatorMulti(argumentOne, argumentTwo, operator);
+        if (operator != null) {
+            result = calculator.performBinaryOperatorMulti(argumentOne, argumentTwo, operator);
 
             view.showResult(String.valueOf(result));
 
@@ -119,15 +115,15 @@ public class CalculatorPresenter {
             argumentTwo = 0;
         }
 
-
+        operator = Operator.MULTI;
     }
 
-    public void keyDivisionPressed(){
+    public void keyDivisionPressed() {
 
         isFirstArgument = false;
 
-        if (operator != null){
-            int result = calculator.performBinaryOperatorDivision(argumentOne, argumentTwo, operator);
+        if (operator != null) {
+            result = calculator.performBinaryOperatorDivision(argumentOne, argumentTwo, operator);
 
             view.showResult(String.valueOf(result));
 
@@ -135,23 +131,21 @@ public class CalculatorPresenter {
             argumentTwo = 0;
         }
 
-
+        operator = Operator.DIVISION;
     }
 
-    public void keyEqualPressed(){
+    public void keyEqualPressed() {
 
-        isFirstArgument = false;
+//        isFirstArgument = false;
 
-        if (operator != null){
-            int result = calculator.performBinaryOperatorEqual()
+        if (operator != null) {
+//            result = calculator.performBinaryOperatorEqual(argumentOne, argumentTwo, operator);
 
             view.showResult(String.valueOf(result));
 
             argumentOne = result;
-            argumentTwo = 0;
+            argumentTwo = result;
         }
-
-
     }
 
 
@@ -173,6 +167,5 @@ public class CalculatorPresenter {
 
     }
 
-    
 
 }

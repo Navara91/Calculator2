@@ -6,6 +6,5 @@ public interface Calculator {
     int performBinaryOperatorMinus(int argOne, int argTwo, Operator operator);
     int performBinaryOperatorMulti(int argOne, int argTwo, Operator operator);
     int performBinaryOperatorDivision(int argOne, int argTwo, Operator operator);
-    int performBinaryOperatorEqual(int argOne, int argTwo, Operator operator);
 
 }

@@ -219,12 +219,17 @@
         app:layout_constraintEnd_toEndOf="@id/key_1"
         android:layout_marginLeft="10dp" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_wall_bricks_white_white_brick_wall_texture_construction_architecture_surface_1076087"
         >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_wall_bricks_white_white_brick_wall_texture_construction_architecture_surface_1076087"
 
-    </androidx.appcompat.widget.AppCompatImageView>
+            >
+        </androidx.appcompat.widget.AppCompatImageView>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

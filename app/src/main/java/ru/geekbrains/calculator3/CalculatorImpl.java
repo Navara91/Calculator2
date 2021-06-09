@@ -21,8 +21,4 @@ public class CalculatorImpl implements Calculator{
         return argOne / argTwo;
     }
 
-    @Override
-    public int performBinaryOperatorEqual(int argOne, int argTwo, Operator operator) {
-        return ;
-    }
 }
