@@ -136,18 +136,50 @@ public class CalculatorPresenter {
 
     public void keyEqualPressed() {
 
-//        isFirstArgument = false;
-
-        if (operator != null) {
-//            result = calculator.performBinaryOperatorEqual(argumentOne, argumentTwo, operator);
-
+        if (operator == Operator.ADD) {
+            result = calculator.performBinaryOperatorPlus(argumentOne, argumentTwo, operator);
             view.showResult(String.valueOf(result));
 
-            argumentOne = result;
-            argumentTwo = result;
+            argumentOne = 0;
+            argumentTwo = 0;
         }
+
+        if (operator == Operator.MINUS) {
+            result = calculator.performBinaryOperatorMinus(argumentOne, argumentTwo, operator);
+            view.showResult(String.valueOf(result));
+
+            argumentOne = 0;
+            argumentTwo = 0;
+        }
+
+        if (operator == Operator.MULTI) {
+            result = calculator.performBinaryOperatorMulti(argumentOne, argumentTwo, operator);
+            view.showResult(String.valueOf(result));
+
+            argumentOne = 0;
+            argumentTwo = 0;
+        }
+
+        if (operator == Operator.DIVISION) {
+            result = calculator.performBinaryOperatorDivision(argumentOne, argumentTwo, operator);
+            view.showResult(String.valueOf(result));
+
+            argumentOne = 0;
+            argumentTwo = 0;
+        }
+
+        isFirstArgument = true;
     }
 
+    public void keyClearPressed(){
+
+        isFirstArgument = true;
+        operator = null;
+        argumentOne = 0;
+        argumentTwo = 0;
+
+        view.showResult(String.valueOf(argumentOne));
+    }
 
     private void publishArgument() {
 
@@ -164,7 +196,6 @@ public class CalculatorPresenter {
         } else {
             argumentTwo = argumentTwo * 10 + addition;
         }
-
     }
 
 

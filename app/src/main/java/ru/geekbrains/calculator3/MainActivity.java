@@ -126,6 +126,13 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
             }
         });
 
+        findViewById(R.id.key_clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.keyClearPressed();
+            }
+        });
+
     }
 
     @Override
