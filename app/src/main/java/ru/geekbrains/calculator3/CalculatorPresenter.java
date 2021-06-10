@@ -1,6 +1,8 @@
 package ru.geekbrains.calculator3;
 
-public class CalculatorPresenter {
+import java.io.Serializable;
+
+public class CalculatorPresenter implements Serializable {
 
     private final CalculatorView view;
     private final Calculator calculator;
@@ -140,7 +142,7 @@ public class CalculatorPresenter {
             result = calculator.performBinaryOperatorPlus(argumentOne, argumentTwo, operator);
             view.showResult(String.valueOf(result));
 
-            argumentOne = 0;
+            argumentOne = result;
             argumentTwo = 0;
         }
 
@@ -148,7 +150,7 @@ public class CalculatorPresenter {
             result = calculator.performBinaryOperatorMinus(argumentOne, argumentTwo, operator);
             view.showResult(String.valueOf(result));
 
-            argumentOne = 0;
+            argumentOne = result;
             argumentTwo = 0;
         }
 
@@ -156,7 +158,7 @@ public class CalculatorPresenter {
             result = calculator.performBinaryOperatorMulti(argumentOne, argumentTwo, operator);
             view.showResult(String.valueOf(result));
 
-            argumentOne = 0;
+            argumentOne = result;
             argumentTwo = 0;
         }
 
@@ -164,11 +166,11 @@ public class CalculatorPresenter {
             result = calculator.performBinaryOperatorDivision(argumentOne, argumentTwo, operator);
             view.showResult(String.valueOf(result));
 
-            argumentOne = 0;
+            argumentOne = result;
             argumentTwo = 0;
         }
 
-        isFirstArgument = true;
+        operator = null;
     }
 
     public void keyClearPressed(){

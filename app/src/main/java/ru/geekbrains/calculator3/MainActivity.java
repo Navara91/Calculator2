@@ -1,14 +1,18 @@
 package ru.geekbrains.calculator3;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements CalculatorView {
 
+    private final static String counter = "CalculatorPresenter";
     private TextView resultText;
     private CalculatorPresenter presenter;
 
@@ -138,5 +142,17 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     @Override
     public void showResult(String result) {
         resultText.setText(result);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(counter, presenter);
+    }
+
+    @Override
+    public void onRestoreInstanceState(@Nullable Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        presenter = (CalculatorPresenter) savedInstanceState.getSerializable(counter);
     }
 }
