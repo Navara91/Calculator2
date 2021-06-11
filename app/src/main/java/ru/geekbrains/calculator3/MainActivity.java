@@ -140,11 +140,6 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     }
 
     @Override
-    public void showResult(String result) {
-        resultText.setText(result);
-    }
-
-    @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putSerializable(counter, presenter);
@@ -155,4 +150,11 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
         super.onRestoreInstanceState(savedInstanceState);
         presenter = (CalculatorPresenter) savedInstanceState.getSerializable(counter);
     }
+
+    @Override
+    public void showResult(String result) {
+        resultText.setText(result);
+    }
+
+
 }

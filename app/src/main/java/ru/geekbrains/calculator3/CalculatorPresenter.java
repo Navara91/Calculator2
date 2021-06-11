@@ -183,7 +183,7 @@ public class CalculatorPresenter implements Serializable {
         view.showResult(String.valueOf(argumentOne));
     }
 
-    private void publishArgument() {
+    public void publishArgument() {
 
         if (isFirstArgument) {
             view.showResult(String.valueOf(argumentOne));
