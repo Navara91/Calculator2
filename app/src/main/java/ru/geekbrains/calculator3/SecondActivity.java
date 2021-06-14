@@ -1,16 +1,15 @@
 package ru.geekbrains.calculator3;
 
-import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements CalculatorView {
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class SecondActivity extends AppCompatActivity implements CalculatorView{
 
     private final static String COUNTER = "CalculatorPresenter";
     private TextView resultText;
@@ -20,7 +19,6 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_constraint);
-
         resultText = findViewById(R.id.result);
 
         presenter = new CalculatorPresenter(this, new CalculatorImpl());
@@ -141,14 +139,18 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putParcelable(COUNTER, presenter);
+        super.onSaveInstanceState(outState);
+
+//        outState.putSerializable("CalculatorPresenter", presenter);
     }
 
     @Override
     public void onRestoreInstanceState(@Nullable Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
         presenter = (CalculatorPresenter) savedInstanceState.getParcelable(COUNTER);
+        super.onRestoreInstanceState(savedInstanceState);
+
+//        presenter = (CalculatorPresenter) savedInstanceState.getSerializable("CalculatorPresenter");
         presenter.publishArgument();
     }
 
@@ -156,6 +158,4 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     public void showResult(String result) {
         resultText.setText(result);
     }
-
-
 }

@@ -1,8 +1,9 @@
 package ru.geekbrains.calculator3;
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class CalculatorPresenter implements Serializable {
+public class CalculatorPresenter implements Parcelable {
 
     private final CalculatorView view;
     private final Calculator calculator;
@@ -21,6 +22,30 @@ public class CalculatorPresenter implements Serializable {
 
         publishArgument();
     }
+
+    protected CalculatorPresenter(CalculatorView view, Calculator calculator, Parcel in) {
+        this.view = view;
+        this.calculator = calculator;
+        result = in.readInt();
+        argumentOne = in.readInt();
+        argumentTwo = in.readInt();
+        isFirstArgument = in.readByte() != 0;
+    }
+
+    public static final Creator<CalculatorPresenter> CREATOR = new Creator<CalculatorPresenter>() {
+        public CalculatorView view;
+        public Calculator calculator;
+
+        @Override
+        public CalculatorPresenter createFromParcel(Parcel in) {
+            return new CalculatorPresenter(view, calculator, in);
+        }
+
+        @Override
+        public CalculatorPresenter[] newArray(int size) {
+            return new CalculatorPresenter[size];
+        }
+    };
 
     public void keyOnePressed() {
         computeArg(1);
@@ -201,4 +226,16 @@ public class CalculatorPresenter implements Serializable {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(result);
+        dest.writeInt(argumentOne);
+        dest.writeInt(argumentTwo);
+        dest.writeByte((byte) (isFirstArgument ? 1 : 0));
+    }
 }
