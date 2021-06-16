@@ -142,13 +142,16 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(COUNTER, presenter);
+        outState.putSerializable(COUNTER, presenter);
+//        presenter.publishArgument();
     }
 
     @Override
     public void onRestoreInstanceState(@Nullable Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        presenter = (CalculatorPresenter) savedInstanceState.getParcelable(COUNTER);
+        assert savedInstanceState != null;
+        presenter = (CalculatorPresenter) savedInstanceState.getSerializable(COUNTER);
+        presenter.setView(this);
         presenter.publishArgument();
     }
 

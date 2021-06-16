@@ -3,10 +3,13 @@ package ru.geekbrains.calculator3;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class CalculatorPresenter implements Parcelable {
+import java.io.IOException;
+import java.io.Serializable;
 
-    private final CalculatorView view;
-    private final Calculator calculator;
+public class CalculatorPresenter implements Serializable {
+
+    private CalculatorView view;
+    private Calculator calculator;
 
     private int result;
     private int argumentOne = 0;
@@ -23,29 +26,21 @@ public class CalculatorPresenter implements Parcelable {
         publishArgument();
     }
 
-    protected CalculatorPresenter(CalculatorView view, Calculator calculator, Parcel in) {
+    public void setView(CalculatorView view) {
         this.view = view;
-        this.calculator = calculator;
-        result = in.readInt();
-        argumentOne = in.readInt();
-        argumentTwo = in.readInt();
-        isFirstArgument = in.readByte() != 0;
     }
 
-    public static final Creator<CalculatorPresenter> CREATOR = new Creator<CalculatorPresenter>() {
-        public CalculatorView view;
-        public Calculator calculator;
+    private void writeObject(java.io.ObjectOutputStream out) throws IOException
+    {
+        out.writeObject(view);
+        out.writeObject(calculator);
+    }
 
-        @Override
-        public CalculatorPresenter createFromParcel(Parcel in) {
-            return new CalculatorPresenter(view, calculator, in);
-        }
-
-        @Override
-        public CalculatorPresenter[] newArray(int size) {
-            return new CalculatorPresenter[size];
-        }
-    };
+    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException
+    {
+        view = (CalculatorView) in.readObject();
+        calculator = (Calculator) in.readObject();
+    }
 
     public void keyOnePressed() {
         computeArg(1);
@@ -226,16 +221,4 @@ public class CalculatorPresenter implements Parcelable {
     }
 
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(result);
-        dest.writeInt(argumentOne);
-        dest.writeInt(argumentTwo);
-        dest.writeByte((byte) (isFirstArgument ? 1 : 0));
-    }
 }

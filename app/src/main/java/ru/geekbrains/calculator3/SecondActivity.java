@@ -139,7 +139,7 @@ public class SecondActivity extends AppCompatActivity implements CalculatorView{
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putParcelable(COUNTER, presenter);
+        outState.putSerializable(COUNTER, presenter);
         super.onSaveInstanceState(outState);
 
 //        outState.putSerializable("CalculatorPresenter", presenter);
@@ -147,9 +147,9 @@ public class SecondActivity extends AppCompatActivity implements CalculatorView{
 
     @Override
     public void onRestoreInstanceState(@Nullable Bundle savedInstanceState) {
-        presenter = (CalculatorPresenter) savedInstanceState.getParcelable(COUNTER);
+        presenter = (CalculatorPresenter) savedInstanceState.getSerializable(COUNTER);
         super.onRestoreInstanceState(savedInstanceState);
-
+        presenter.setView(this);
 //        presenter = (CalculatorPresenter) savedInstanceState.getSerializable("CalculatorPresenter");
         presenter.publishArgument();
     }
