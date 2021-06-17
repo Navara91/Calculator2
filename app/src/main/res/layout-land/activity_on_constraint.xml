@@ -36,8 +36,8 @@
         android:layout_height="wrap_content"
         android:text="@string/key_1"
         android:layout_margin="10dp"
-        app:layout_constraintTop_toBottomOf="@id/key_plus"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/display_frame"
+        app:layout_constraintStart_toEndOf="@id/key_clear"
         app:layout_constraintEnd_toStartOf="@id/key_2"
         />
 
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:text="@string/key_2"
         android:layout_margin="10dp"
-        app:layout_constraintTop_toBottomOf="@id/key_plus"
+        app:layout_constraintTop_toBottomOf="@id/display_frame"
         app:layout_constraintStart_toEndOf="@id/key_1"
         app:layout_constraintEnd_toStartOf="@id/key_3"
         />
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:text="@string/key_3"
         android:layout_margin="10dp"
-        app:layout_constraintTop_toBottomOf="@id/key_plus"
+        app:layout_constraintTop_toBottomOf="@id/display_frame"
         app:layout_constraintStart_toEndOf="@id/key_2"
         app:layout_constraintEnd_toStartOf="@id/key_plus"
         />
@@ -70,7 +70,7 @@
         android:text="@string/key_4"
         android:layout_margin="10dp"
         app:layout_constraintTop_toBottomOf="@id/key_1"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/key_clear"
         app:layout_constraintEnd_toStartOf="@id/key_5"
         />
 
@@ -103,7 +103,7 @@
         android:text="@string/key_7"
         android:layout_margin="10dp"
         app:layout_constraintTop_toBottomOf="@id/key_4"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/key_clear"
         app:layout_constraintEnd_toStartOf="@id/key_8"
         />
 
@@ -136,9 +136,9 @@
         android:text="@string/key_0"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/key_1"
         app:layout_constraintTop_toBottomOf="@id/key_7"
-        app:layout_constraintEnd_toEndOf="@id/key_8"
+        app:layout_constraintEnd_toEndOf="@id/key_2"
         android:layout_marginLeft="10dp" />
 
     <Button
@@ -148,8 +148,8 @@
         android:text="@string/key_point"
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/key_9"
-        app:layout_constraintStart_toStartOf="@id/key_9"
-        app:layout_constraintEnd_toEndOf="@id/key_9"
+        app:layout_constraintStart_toStartOf="@id/key_1"
+        app:layout_constraintEnd_toEndOf="@id/key_1"
         />
 
     <Button
@@ -194,17 +194,19 @@
         app:layout_constraintTop_toBottomOf="@id/key_multi"
         app:layout_constraintStart_toStartOf="@id/key_multi"
         app:layout_constraintEnd_toEndOf="@id/key_multi"
+        app:layout_constraintBottom_toBottomOf="@id/key_0"
         />
 
     <Button
         android:id="@+id/key_equal"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/key_equal"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/key_division"
-        app:layout_constraintStart_toStartOf="@id/key_multi"
-        app:layout_constraintEnd_toEndOf="@id/key_multi"
+        app:layout_constraintTop_toBottomOf="@id/key_9"
+        app:layout_constraintStart_toStartOf="@id/key_9"
+        app:layout_constraintEnd_toEndOf="@id/key_9"
+        app:layout_constraintBottom_toBottomOf="@id/key_0"
         />
 
     <Button
@@ -216,20 +218,20 @@
         android:layout_marginStart="10dp"
         app:layout_constraintTop_toBottomOf="@id/display_frame"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/key_1"
+        app:layout_constraintEnd_toStartOf="@id/key_1"
         android:layout_marginLeft="10dp" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent" >
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_wall_bricks_white_white_brick_wall_texture_construction_architecture_surface_1076087"
 
-            ></androidx.appcompat.widget.AppCompatImageView>
+            >
+        </androidx.appcompat.widget.AppCompatImageView>
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
