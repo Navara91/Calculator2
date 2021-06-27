@@ -138,20 +138,17 @@ public class SecondActivity extends AppCompatActivity implements CalculatorView{
     }
 
     @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putSerializable(COUNTER, presenter);
-        super.onSaveInstanceState(outState);
-
-//        outState.putSerializable("CalculatorPresenter", presenter);
+    public void onSaveInstanceState(@NonNull Bundle instanceState) {
+        super.onSaveInstanceState(instanceState);
+        instanceState.putSerializable(COUNTER, presenter);
     }
 
     @Override
-    public void onRestoreInstanceState(@Nullable Bundle savedInstanceState) {
-        presenter = (CalculatorPresenter) savedInstanceState.getSerializable(COUNTER);
-        super.onRestoreInstanceState(savedInstanceState);
+    public void onRestoreInstanceState(@Nullable Bundle instanceState) {
+        super.onRestoreInstanceState(instanceState);
+        presenter = (CalculatorPresenter) instanceState.getSerializable(COUNTER);
         presenter.setView(this);
-//        presenter = (CalculatorPresenter) savedInstanceState.getSerializable("CalculatorPresenter");
-        presenter.publishArgument();
+//        presenter.publishArgument();
     }
 
     @Override
