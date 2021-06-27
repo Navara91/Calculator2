@@ -2,6 +2,7 @@ package ru.geekbrains.calculator3;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -197,18 +198,25 @@ public class MainActivity extends AppCompatActivity implements CalculatorView, V
     }
 
     @Override
-    public void onSaveInstanceState(@NonNull Bundle instanceState) {
-        super.onSaveInstanceState(instanceState);
-        instanceState.putSerializable(COUNTER, presenter);
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(COUNTER, presenter);
     }
 
     @Override
-    public void onRestoreInstanceState(@Nullable Bundle instanceState) {
-        super.onRestoreInstanceState(instanceState);
-        presenter = (CalculatorPresenter) instanceState.getSerializable(COUNTER);
+    public void onRestoreInstanceState(@Nullable Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        presenter = (CalculatorPresenter) savedInstanceState.getSerializable(COUNTER);
         presenter.setView(this);
-//        presenter.publishArgument();
     }
+
+//    @Override
+//    public void onRestoreInstanceState(@Nullable Bundle instanceState) {
+//        super.onRestoreInstanceState(instanceState);
+//        presenter = (CalculatorPresenter) instanceState.getSerializable(COUNTER);
+//        presenter.setView(this);
+////        presenter.publishArgument();
+//    }
 
     @Override
     public void showResult(String result) {

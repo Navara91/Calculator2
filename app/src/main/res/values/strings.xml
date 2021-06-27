@@ -17,5 +17,6 @@
     <string name="key_division">/</string>
     <string name="key_equal">=</string>
     <string name="key_clear">C</string>
+    <string name="default_result">0</string>
 
 </resources>

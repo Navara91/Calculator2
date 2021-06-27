@@ -28,6 +28,7 @@ class CalculatorPresenter implements Serializable {
 
     public void setView(CalculatorView view) {
         this.view = view;
+
     }
 
     public void keyOnePressed() {
