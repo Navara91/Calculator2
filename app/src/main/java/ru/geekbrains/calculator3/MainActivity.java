@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements CalculatorView, V
     }
 
     private void initButton0ClickListener(){
-        Button key_0 = findViewById(R.id.key_1);
+        Button key_0 = findViewById(R.id.key_0);
         key_0.setOnClickListener(this);
     }
 
