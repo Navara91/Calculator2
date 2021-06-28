@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import java.io.IOException;
 import java.io.Serializable;
 
-public class CalculatorPresenter implements Serializable {
+class CalculatorPresenter implements Serializable {
 
     private CalculatorView view;
     private Calculator calculator;
@@ -28,18 +28,7 @@ public class CalculatorPresenter implements Serializable {
 
     public void setView(CalculatorView view) {
         this.view = view;
-    }
 
-    private void writeObject(java.io.ObjectOutputStream out) throws IOException
-    {
-        out.writeObject(view);
-        out.writeObject(calculator);
-    }
-
-    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException
-    {
-        view = (CalculatorView) in.readObject();
-        calculator = (Calculator) in.readObject();
     }
 
     public void keyOnePressed() {

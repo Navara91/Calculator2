@@ -1,5 +1,6 @@
 package ru.geekbrains.calculator3;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
@@ -10,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements CalculatorView {
+public class MainActivity extends AppCompatActivity implements CalculatorView, View.OnClickListener {
 
     private final static String COUNTER = "CalculatorPresenter";
     private TextView resultText;
@@ -25,140 +26,203 @@ public class MainActivity extends AppCompatActivity implements CalculatorView {
 
         presenter = new CalculatorPresenter(this, new CalculatorImpl());
 
-        findViewById(R.id.key_1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        initViews();
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.key_1:
                 presenter.keyOnePressed();
-            }
-        });
+                break;
 
-        findViewById(R.id.key_2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.key_2:
                 presenter.keyTwoPressed();
-            }
-        });
-
-        findViewById(R.id.key_3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.key_3:
                 presenter.keyThreePressed();
-            }
-        });
+                break;
 
-        findViewById(R.id.key_4).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.key_4:
                 presenter.keyFourPressed();
-            }
-        });
-
-        findViewById(R.id.key_5).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.key_5:
                 presenter.keyFivePressed();
-            }
-        });
+                break;
 
-        findViewById(R.id.key_6).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.key_6:
                 presenter.keySixPressed();
-            }
-        });
-
-        findViewById(R.id.key_7).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.key_7:
                 presenter.keySevenPressed();
-            }
-        });
+                break;
 
-        findViewById(R.id.key_8).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.key_8:
                 presenter.keyEightPressed();
-            }
-        });
-
-        findViewById(R.id.key_9).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.key_9:
                 presenter.keyNinePressed();
-            }
-        });
+                break;
 
-        findViewById(R.id.key_0).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.key_0:
                 presenter.keyZeroPressed();
-            }
-        });
+                break;
 
-        findViewById(R.id.key_plus).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.key_plus:
                 presenter.keyPlusPressed();
-            }
-        });
+                break;
 
-        findViewById(R.id.key_minus).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.key_minus:
                 presenter.keyMinusPressed();
-            }
-        });
+                break;
 
-        findViewById(R.id.key_multi).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.key_multi:
                 presenter.keyMultiPressed();
-            }
-        });
+                break;
 
-        findViewById(R.id.key_division).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.key_division:
                 presenter.keyDivisionPressed();
-            }
-        });
+                break;
 
-        findViewById(R.id.key_equal).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.key_equal:
                 presenter.keyEqualPressed();
-            }
-        });
+                break;
 
-        findViewById(R.id.key_clear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.key_clear:
                 presenter.keyClearPressed();
-            }
-        });
+                break;
+        }
 
+    }
+
+    private void initViews(){
+
+        initButton1ClickListener();
+        initButton2ClickListener();
+        initButton3ClickListener();
+        initButton4ClickListener();
+        initButton5ClickListener();
+        initButton6ClickListener();
+        initButton7ClickListener();
+        initButton8ClickListener();
+        initButton9ClickListener();
+        initButton0ClickListener();
+        initButtonPlusClickListener();
+        initButtonMinusClickListener();
+        initButtonMultiClickListener();
+        initButtonDivisionClickListener();
+        initButtonEqualClickListener();
+        initButtonClearClickListener();
+    }
+
+    private void initButton1ClickListener(){
+        Button key_1 = findViewById(R.id.key_1);
+        key_1.setOnClickListener(this);
+    }
+
+    private void initButton2ClickListener(){
+        Button key_2 = findViewById(R.id.key_2);
+        key_2.setOnClickListener(this);
+    }
+
+    private void initButton3ClickListener(){
+        Button key_3 = findViewById(R.id.key_3);
+        key_3.setOnClickListener(this);
+    }
+
+    private void initButton4ClickListener(){
+        Button key_4 = findViewById(R.id.key_4);
+        key_4.setOnClickListener(this);
+    }
+
+    private void initButton5ClickListener(){
+        Button key_5 = findViewById(R.id.key_5);
+        key_5.setOnClickListener(this);
+    }
+
+    private void initButton6ClickListener(){
+        Button key_6 = findViewById(R.id.key_6);
+        key_6.setOnClickListener(this);
+    }
+
+    private void initButton7ClickListener(){
+        Button key_7 = findViewById(R.id.key_7);
+        key_7.setOnClickListener(this);
+    }
+
+    private void initButton8ClickListener(){
+        Button key_8 = findViewById(R.id.key_8);
+        key_8.setOnClickListener(this);
+    }
+
+    private void initButton9ClickListener(){
+        Button key_9 = findViewById(R.id.key_9);
+        key_9.setOnClickListener(this);
+    }
+
+    private void initButton0ClickListener(){
+        Button key_0 = findViewById(R.id.key_0);
+        key_0.setOnClickListener(this);
+    }
+
+    private void initButtonPlusClickListener(){
+        Button key_plus = findViewById(R.id.key_plus);
+        key_plus.setOnClickListener(this);
+    }
+
+    private void initButtonMinusClickListener(){
+        Button key_minus = findViewById(R.id.key_minus);
+        key_minus.setOnClickListener(this);
+    }
+
+    private void initButtonMultiClickListener(){
+        Button key_multi = findViewById(R.id.key_multi);
+        key_multi.setOnClickListener(this);
+    }
+
+    private void initButtonDivisionClickListener(){
+        Button key_division = findViewById(R.id.key_division);
+        key_division.setOnClickListener(this);
+    }
+
+    private void initButtonEqualClickListener(){
+        Button key_equal = findViewById(R.id.key_equal);
+        key_equal.setOnClickListener(this);
+    }
+
+    private void initButtonClearClickListener(){
+        Button key_clear = findViewById(R.id.key_clear);
+        key_clear.setOnClickListener(this);
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putSerializable(COUNTER, presenter);
-//        presenter.publishArgument();
     }
 
     @Override
     public void onRestoreInstanceState(@Nullable Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        assert savedInstanceState != null;
         presenter = (CalculatorPresenter) savedInstanceState.getSerializable(COUNTER);
         presenter.setView(this);
-        presenter.publishArgument();
     }
+
+//    @Override
+//    public void onRestoreInstanceState(@Nullable Bundle instanceState) {
+//        super.onRestoreInstanceState(instanceState);
+//        presenter = (CalculatorPresenter) instanceState.getSerializable(COUNTER);
+//        presenter.setView(this);
+////        presenter.publishArgument();
+//    }
 
     @Override
     public void showResult(String result) {
         resultText.setText(result);
     }
+
 
 
 }

@@ -1,6 +1,8 @@
 package ru.geekbrains.calculator3;
 
-public class CalculatorImpl implements Calculator{
+import java.io.Serializable;
+
+public class CalculatorImpl implements Calculator, Serializable {
     @Override
     public int performBinaryOperatorPlus(int argOne, int argTwo, Operator operator) {
         return argOne + argTwo;
